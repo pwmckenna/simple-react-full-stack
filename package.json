@@ -1,5 +1,5 @@
 {
-  "name": "simple-react-full-stack",
+  "name": "@porch/simple-react-full-stack",
   "version": "1.0.0",
   "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
   "main": "src/server/index.js",
@@ -13,10 +13,18 @@
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
+    "@babel/register": "^7.0.0",
+    "@porch/babel-register": "^1.1.13",
+    "@porch/fetchr-service-locator": "^1.0.29",
+    "@porch/fetchr-service-registrar": "^1.0.10",
+    "@porch/fetchr-services": "^15.0.157",
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "fluxible": "^1.4.0",
+    "fluxible-context": "^1.0.0",
+    "fluxible-plugin-fetchr": "^0.3.11",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

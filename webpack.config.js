@@ -34,6 +34,10 @@ module.exports = {
     open: true,
     proxy: {
       '/api': 'http://localhost:8080'
+    },
+    overlay: {
+      warnings: true,
+      errors: true
     }
   },
   plugins: [
