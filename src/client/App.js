@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import FluxibleContext from 'fluxible-context';
 import './app.css';
+import ReactImage from './react.png';
 
 // export default class App extends Component {
 //   state = { username: null };
@@ -23,8 +24,7 @@ import './app.css';
 // }
 
 export default () => {
-  const { getStore, executeAction } = useContext(FluxibleContext);
-
-  console.log('fluxible', { getStore, executeAction });
+  const fluxible = useContext(FluxibleContext);
+  console.log('fluxible', fluxible);
   return <div>hello world</div>;
 };
