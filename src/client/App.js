@@ -1,30 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import FluxibleContext from 'fluxible-context';
+import { useStores } from 'fluxible-hooks';
+import { UsernameStore } from '../stores';
 import './app.css';
-import ReactImage from './react.png';
 
-// export default class App extends Component {
-//   state = { username: null };
-
-//   componentDidMount() {
-//     fetch('/api/getUsername')
-//       .then(res => res.json())
-//       .then(user => this.setState({ username: user.username }));
-//   }
-
-//   render() {
-//     const { username } = this.state;
-//     return (
-//       <div>
-//         {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-//         <img src={ReactImage} alt="react" />
-//       </div>
-//     );
-//   }
-// }
+const fetchUsername = async (context) => {
+  const { data: username } = await context.service.read('username').end();
+  context.dispatch('USERNAME', username);
+  return username;
+};
 
 export default () => {
-  const fluxible = useContext(FluxibleContext);
-  console.log('fluxible', fluxible);
-  return <div>hello world</div>;
+  const context = useContext(FluxibleContext);
+  useEffect(() => {
+    context.executeAction(fetchUsername);
+  }, []);
+  const username = useStores([UsernameStore], ctx => ctx.getStore(UsernameStore).getUsername());
+  return <div>{username}</div>;
 };

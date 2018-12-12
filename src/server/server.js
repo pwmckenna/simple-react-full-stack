@@ -1,8 +1,15 @@
 import express from 'express';
 import os from 'os';
+import fetchr from '../fetchr';
 
 const app = express();
 
 app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
+fetchr.registerService({
+  name: 'username',
+  read: (req, resource, params, config, cb) => {
+    cb(null, os.userInfo().username);
+  }
+});
+app.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 app.listen(8080, () => console.log('Listening on port 8080!'));

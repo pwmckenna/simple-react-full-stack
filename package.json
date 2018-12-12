@@ -22,7 +22,9 @@
     "express": "^4.16.3",
     "fluxible": "^1.4.0",
     "fluxible-context": "^1.0.0",
+    "fluxible-hooks": "^1.0.0",
     "fluxible-plugin-fetchr": "^0.3.11",
+    "fluxible-reducer-store": "^0.1.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2"
   },
