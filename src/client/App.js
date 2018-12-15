@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import FluxibleContext from 'fluxible-context';
 import { useStores } from 'fluxible-hooks';
 import { UsernameStore } from '../stores';
-import './app.css';
 
 const fetchUsername = async (context) => {
   const { data: username } = await context.service.read('username').end();

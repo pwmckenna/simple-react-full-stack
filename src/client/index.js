@@ -10,10 +10,11 @@ const fluxible = new Fluxible();
 fluxible.registerStore(UsernameStore);
 fluxible.plug(fetchr);
 
-const context = fluxible.createContext();
-window.context = context;
-ReactDOM.render((
-  <FluxibleContext.Provider value={context.getComponentContext()}>
-    <App />
-  </FluxibleContext.Provider>
-), document.getElementById('root'));
+fluxible.rehydrate(window.App, (err, context) => {
+  window.context = context;
+  ReactDOM.render((
+    <FluxibleContext.Provider value={context.getComponentContext()}>
+      <App />
+    </FluxibleContext.Provider>
+  ), document.getElementById('root'));
+});
