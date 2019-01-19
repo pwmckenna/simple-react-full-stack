@@ -5,6 +5,7 @@ import { renderToString } from 'react-dom/server';
 import FluxibleContext from 'fluxible-context';
 import Fluxible from 'fluxible';
 import fetchrPlugin from 'fluxible-plugin-fetchr';
+import logger from '@porch/logger';
 import App from '../client/App';
 import { UsernameStore } from '../stores';
 
@@ -28,6 +29,7 @@ fetchr.registerService({
 app.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 
 app.get('/', (req, res) => {
+  logger.trace({ req, res }, 'get');
   const context = fluxible.createContext();
 
   res.send(`<!DOCTYPE html>

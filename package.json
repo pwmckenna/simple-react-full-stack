@@ -15,10 +15,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@porch/babel-register": "^1.1.13",
+    "@porch/babel-register": "^1.1.14",
     "@porch/fetchr-service-locator": "^1.0.29",
     "@porch/fetchr-service-registrar": "^1.0.10",
     "@porch/fetchr-services": "^15.0.157",
+    "@porch/logger": "^6.0.4",
     "babel-polyfill": "^6.26.0",
     "express": "^4.16.3",
     "fluxible": "^1.4.0",
