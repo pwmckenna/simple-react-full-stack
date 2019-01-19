@@ -4,9 +4,13 @@ import os from 'os';
 import { renderToString } from 'react-dom/server';
 import FluxibleContext from 'fluxible-context';
 import Fluxible from 'fluxible';
-import fetchr from '../fetchr';
+import fetchrPlugin from 'fluxible-plugin-fetchr';
 import App from '../client/App';
 import { UsernameStore } from '../stores';
+
+const fetchr = fetchrPlugin({
+  xhrPath: '/api' // Path for XHR to be served from
+});
 
 const fluxible = new Fluxible();
 fluxible.registerStore(UsernameStore);
@@ -38,11 +42,7 @@ app.get('/', (req, res) => {
     
     <body>
       <script type="application/javascript">window.App=${JSON.stringify(context.dehydrate())}</script>
-      <div id="root">${renderToString(
-        <FluxibleContext.Provider value={context.getComponentContext()}>
-          <App />
-        </FluxibleContext.Provider>
-      )}</div>
+      <div id="root">${renderToString(<FluxibleContext.Provider value={context.getComponentContext()}><App /></FluxibleContext.Provider>)}</div>
       <script type="application/javascript" src="http://localhost:3000/bundle.js"></script>
     </body>
     
