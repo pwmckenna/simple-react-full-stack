@@ -13,6 +13,7 @@
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@porch/babel-register": "^1.1.13",
     "@porch/fetchr-service-locator": "^1.0.29",
